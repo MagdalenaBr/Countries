@@ -1,0 +1,265 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,300;6..12,600;6..12,800&display=swap");
+
+.light-mode {
+	--background-color: hsl(0, 0%, 98%);
+	--accent-color: hsl(0, 0%, 100%);
+	--text-color: hsl(200, 15%, 8%);
+	--light-gray: hsl(0, 0%, 52%);
+	--box-shadow: hsla(0, 3%, 72%, 0.158);
+}
+.dark-mode {
+	--background-color: hsl(207, 26%, 17%);
+	--accent-color: hsl(209, 23%, 22%);
+	--text-color: hsl(0, 0%, 100%);
+	--light-gray: hsl(0, 0%, 52%);
+	--box-shadow: hsla(206, 29%, 11%, 0.322);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	width: 100vw;
+	font-family: "Nunito Sans", sans-serif;
+	background-color: var(--background-color);
+	color: var(--text-color);
+	
+	
+}
+.header {
+	padding-inline: 1rem;
+	padding-block: 2rem;
+	margin-bottom: 5px;
+	font-size: 10px;
+	box-shadow: 0px 5px 5px var(--box-shadow);
+	background-color: var(--accent-color);
+	
+	&_content {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		max-width: 1400px;
+		margin: 0 auto;
+	}
+}
+
+
+.search-container {
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	gap: 2rem;
+	margin-inline: 1rem;
+	margin-block: 3rem;
+
+
+	&_search-input,
+	&_select-region {
+		display: flex;
+		align-items: center;
+		height: 3rem;
+		background-color: var(--accent-color);
+		box-shadow: 0px 0px 5px 5px var(--box-shadow);
+		border-radius: 5px;
+		button {
+			color: var(--light-gray);
+		}
+	}
+
+	&_search-input {
+		width: 100%;
+		padding: 1rem;
+		padding-inline: 1rem;
+		input {
+			width: 100%;
+			padding: 1rem;
+			border: none;
+			background-color: transparent;
+		}
+	}
+	&_select-region {
+		padding-inline: 1rem;
+		select {
+			padding-inline: 1rem;
+			font-weight: 600;
+			border: none;
+			background-color: var(--accent-color);
+		}
+	}
+}
+.main-container {
+	max-width: 1400px;
+	width: 100%;
+	height: 90vh;
+	margin: 0 auto;
+
+}
+.countries-container {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 5rem;
+	width: 95%;
+	margin: 0 auto;
+}
+
+.country-item {
+	width: 250px;
+	border-radius: 5px;
+	background-color: var(--accent-color);
+
+	&_data {
+		display: flex;
+		flex-direction: column;
+		align-items: start;
+		gap: 0.5rem;
+		padding: 2rem 1.5rem 3rem 1.5rem;
+		color: var(--text-color);
+		span {
+			font-weight: 600;
+		}
+	}
+	&_flag {
+		height: 150px;
+	}
+	img {
+		width: 100%;
+		height: 150px;
+		object-fit: cover;
+	}
+	&_title {
+		padding-bottom: 1rem;
+		font-weight: 800;
+	}
+}
+
+.country-information {
+	width: 85%;
+	margin: 0 auto;
+	margin-top: 2rem;
+	
+	&_content {
+		display: flex;
+		flex-direction: column;
+		gap: 3rem;
+	}
+	span {
+		font-weight: 800;
+	}
+	&_img {
+		max-width: 100%;
+	}
+	&_info--one,
+	&_info--two {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+	&_border-countries-button,
+	&_back-button {
+		padding: 0.5rem 1rem;
+		font-weight: 600;
+		border-radius: 5px;
+		box-shadow: 0px 0px 5px 5px var(--box-shadow);
+	}
+	&_border-countries-button {
+		margin-left: 1rem;
+		margin-bottom: 1rem;
+	}
+	&_back-button {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.5rem 1.5rem;
+		margin-bottom: 2rem;
+		font-size: 14px;
+	}
+}
+button {
+	border: none;
+	cursor: pointer;
+	background-color: transparent;
+}
+button,
+select,
+input {
+	font-family: "Nunito Sans", sans-serif;
+	color: var(--text-color);
+}
+@media (min-width: 630px) {
+	.search-container {
+		flex-direction: row;
+		justify-content: space-between;
+		&_search-input {
+			width: 16rem;
+		}
+	}
+}
+@media (min-width: 730px) {
+	.main-container {
+		height: 70vh;
+		padding-inline: 4rem;
+	}
+	.header {
+		padding-inline: 4rem;
+		font-size: 1rem;
+	}
+
+	.search-container {
+		margin-inline: 0;
+	}
+
+	.country-information {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: start;
+		width: 75%;
+		height: auto;
+		&_content {
+			display: grid;
+			gap: 3rem;
+			grid-template-columns: 2fr 1fr 1fr;
+			grid-template-rows: 3fr 1fr;
+		}
+		span {
+			font-weight: 800;
+		}
+		&_img {
+			grid-column: 1/2;
+			grid-row: 1/3;
+			max-width: 30rem;
+		}
+		&_info--one {
+			grid-column: 2/3;
+			grid-row: 1/2;
+		}
+		&_info--two {
+			grid-column: 3/4;
+			grid-row: 1/2;
+		}
+		&_border-countries {
+			grid-column: 2/4;
+			grid-row: 2/3;
+		}
+		&_back-button {
+			margin-bottom: 3rem;
+			font-size: 1.1rem;
+		}
+	}
+}
+@media (min-width: 1450px) {
+	.main-container {
+		padding-inline: 0;
+	}
+	.country-information {
+		
+		&_content {
+			gap: 6rem;
+		}
+		
+}
+}
