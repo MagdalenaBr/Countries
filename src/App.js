@@ -33,26 +33,23 @@ export default function App() {
 		setActiveCountry("");
 	}
 
-	useEffect(
-		function () {
-			async function fetchData() {
-				setError("");
-				try {
-					const res = await fetch(`https://restcountries.com/v3.1/all`);
-					if (!res.ok) {
-						throw new Error("Something went wrong with fetching countries");
-					}
-					const data = await res.json();
-					setCountries(data);
-				} catch (err) {
-					setError(err.message);
+	useEffect(function () {
+		async function fetchData() {
+			setError("");
+			try {
+				const res = await fetch(`https://restcountries.com/v3.1/all`);
+				if (!res.ok) {
+					throw new Error("Something went wrong with fetching countries");
 				}
+				const data = await res.json();
+				setCountries(data);
+			} catch (err) {
+				setError(err.message);
 			}
+		}
 
-			fetchData();
-		},
-		[countryName]
-	);
+		fetchData();
+	}, []);
 
 	return (
 		<>
